@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>لوحة تحكم فندق العلمي — مفهوم أولي</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="admin-page">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar__brand">فندق العلمي — لوحة التحكم</div>
+    <nav class="admin-sidebar__nav">
+      <button data-panel="overview">نظرة عامة</button>
+      <button data-panel="rooms">الغرف</button>
+      <button data-panel="bookings">طلبات الحجز</button>
+      <button data-panel="menu">قائمة المطعم</button>
+      <button data-panel="gallery">معرض الصور</button>
+      <button data-panel="hotelinfo">معلومات الفندق</button>
+      <button data-panel="contact">رسائل التواصل</button>
+      <button data-panel="settings">الإعدادات</button>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <select id="adminPanelSelect" class="admin-topbar__menu" aria-label="اختر قسم لوحة التحكم">
+        <option value="overview">نظرة عامة</option>
+        <option value="rooms">الغرف</option>
+        <option value="bookings">طلبات الحجز</option>
+        <option value="menu">قائمة المطعم</option>
+        <option value="gallery">معرض الصور</option>
+        <option value="hotelinfo">معلومات الفندق</option>
+        <option value="contact">رسائل التواصل</option>
+        <option value="settings">الإعدادات</option>
+      </select>
+      <a class="btn btn--ghost btn--small" href="index.html">عرض الموقع ↗</a>
+    </div>
+
+    <div class="admin-notice">
+      هذه لوحة تحكم <strong>مفاهيمية (concept)</strong> فقط — واجهة بدون تسجيل دخول أو قاعدة بيانات فعلية بعد. الغرض منها توضيح شكل الإدارة المستقبلية بعد ربط الموقع بـ Supabase. لا تُنشر هذه الصفحة علنًا قبل إضافة نظام صلاحيات حقيقي.
+    </div>
+
+    <section class="admin-panel" data-panel="overview">
+      <h2>نظرة عامة</h2>
+      <div class="admin-stats">
+        <div class="admin-stat"><span>الغرف المُدرجة</span><strong>0</strong></div>
+        <div class="admin-stat"><span>طلبات حجز جديدة</span><strong>0</strong></div>
+        <div class="admin-stat"><span>صور المعرض</span><strong>0</strong></div>
+      </div>
+      <p style="opacity:.75">بعد ربط قاعدة البيانات، ستعرض هذه البطاقات أرقامًا حقيقية بدلًا من الأصفار.</p>
+    </section>
+
+    <section class="admin-panel" data-panel="rooms">
+      <h2>الغرف</h2>
+      <div class="admin-empty">لا توجد غرف مضافة بعد. بعد ربط Supabase يمكن إضافة الغرف وصورها وأسعارها من هنا.</div>
+    </section>
+
+    <section class="admin-panel" data-panel="bookings">
+      <h2>طلبات الحجز</h2>
+      <table class="admin-table">
+        <thead>
+          <tr><th>الاسم</th><th>الهاتف</th><th>الوصول</th><th>المغادرة</th><th>الحالة</th></tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" class="admin-empty">لا توجد طلبات حجز بعد. ستظهر هنا طلبات نموذج الحجز في الموقع بعد ربطه بقاعدة البيانات.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="admin-panel" data-panel="menu">
+      <h2>قائمة المطعم</h2>
+      <div class="admin-empty">لم تتم إضافة عناصر القائمة بعد.</div>
+    </section>
+
+    <section class="admin-panel" data-panel="gallery">
+      <h2>معرض الصور</h2>
+      <div class="admin-empty">لا توجد صور مرفوعة بعد. سيتيح الربط مع Supabase Storage رفع الصور وتصنيفها من هنا.</div>
+    </section>
+
+    <section class="admin-panel" data-panel="hotelinfo">
+      <h2>معلومات الفندق</h2>
+      <div id="hotelInfoPreview" style="font-size:.95rem"></div>
+      <p style="opacity:.65;font-size:.85rem;margin-top:1rem">تُعدَّل هذه البيانات حاليًا من ملف <code>js/data.js</code>، وستُدار من هذه اللوحة مباشرة بعد ربط قاعدة البيانات.</p>
+    </section>
+
+    <section class="admin-panel" data-panel="contact">
+      <h2>رسائل التواصل</h2>
+      <div class="admin-empty">ستظهر هنا رسائل نموذج التواصل والحجز بعد ربط الموقع بقاعدة بيانات حقيقية.</div>
+    </section>
+
+    <section class="admin-panel" data-panel="settings">
+      <h2>الإعدادات</h2>
+      <p style="opacity:.8;font-size:.92rem">هذا القسم مكان مخصص لإعدادات مستقبلية مثل: تفعيل الحجز المباشر، ربط حساب Supabase، وإدارة صلاحيات المستخدمين. لا توجد إعدادات فعلية حاليًا.</p>
+    </section>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
