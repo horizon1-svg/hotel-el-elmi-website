@@ -31,9 +31,11 @@
 
 /* ---------- Reset ---------- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
   background: var(--offwhite);
   color: var(--ink);
   font-family: var(--font-body);
@@ -216,7 +218,7 @@ body.menu-open .nav-mobile { transform: translateY(0); }
 /* ---------- Hero ---------- */
 .hero {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   min-height: 88vh;
   background: var(--charcoal);
   color: var(--sand-light);
@@ -269,7 +271,7 @@ body.menu-open .nav-mobile { transform: translateY(0); }
 .hero__phone { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sand); font-family: var(--font-display); }
 
 @media (min-width: 860px) {
-  .hero { flex-direction: row; }
+  .hero { flex-direction: row-reverse; }
 }
 
 /* ---------- Placeholder media (rooms, gallery, restaurant) ---------- */
@@ -406,9 +408,13 @@ body.menu-open .nav-mobile { transform: translateY(0); }
 .contact__social a.is-disabled { opacity: 0.5; cursor: default; }
 
 .form-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
-.form-grid--pair { grid-template-columns: 1fr 1fr; }
-.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
 .field label { font-size: 0.85rem; opacity: 0.75; }
+.field input, .field select { min-width: 0; }
+
+@media (min-width: 560px) {
+  .form-grid--pair { grid-template-columns: 1fr 1fr; }
+}
 .field input, .field select, .field textarea {
   border: 1px solid var(--line);
   background: var(--offwhite);

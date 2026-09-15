@@ -40,8 +40,8 @@ const hotelInfo = {
 
   // tel: links must stay in international format for mobile dialing
   phones: [
-    { labelAr: "الهاتف الرئيسي", display: "213 698 83 84 86+", tel: "tel:+213698838486" },
-    { labelAr: "الهاتف الثانوي", display: "213 32 11 79 04+", tel: "tel:+213321179004" }
+    { labelAr: "الهاتف الرئيسي", display: "+213 698 83 84 86", tel: "tel:+213698838486" },
+    { labelAr: "الهاتف الثانوي", display: "+213 32 11 79 04", tel: "tel:+213321179004" }
   ],
 
   // Verified as a mobile line, but WhatsApp registration is NOT confirmed.
